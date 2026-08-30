@@ -16,6 +16,11 @@
 
 when the script is run for the first time it will ask for locations to save files which is stored in a file it creates in the same directory as the script. to change the paths, edit the file gdl_paths.txt or delete it and rerun script.
 
+## gallery-dl.conf
+keep this file alongside ```gallery-dl.py```.  
+config file for gallery-dl itself, provided is the one I use which has a save file setup for instagram and pinterest.  
+for edit options etc. see https://github.com/mikf/gallery-dl#configuration
+
 ## gdl.bat - calling script with specific user set command/alias
 ### for win10
 point of the file ```gdl.bat``` is to facilitate calling, in this case ```gdl```, in cmd from anywhere which will execute ```gallery-dl.py```.
