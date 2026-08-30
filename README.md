@@ -26,8 +26,9 @@ for edit options etc. see https://github.com/mikf/gallery-dl#configuration
 point of the file ```gdl.bat``` is to facilitate calling, in this case ```gdl```, in cmd from anywhere which will execute ```gallery-dl.py```.
 to do so however the file location have to be added to environment variables and the file has to be edited to point to ```gallery-dl.py``` location.
 1. place ```gdl.bat``` in eg. ```C:\tools``` or another created-by-you folder or alternatively, leave it in the same folder as the script above.
-2. edit file (with text editor) and replace ```path\to\gallery-dl.py``` with ```your path\gallery-dl.py```.
-3. add the folder to ```path environment variables```
+  2. rename it to ```your_name.bat```if you wish the command you use to be something else. the command will be == to the filename
+3. edit file (with text editor) and replace ```path\to\gallery-dl.py``` with ```your path\gallery-dl.py```.
+4. add the folder to ```path environment variables```
    - environment variables -> mark PATH in user if only for that user or system for everybody and hit edit -> hit New and enter the path to the bat file, eg. ```C:\tools```.
 
 ### for linux
