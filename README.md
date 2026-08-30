@@ -50,3 +50,19 @@ you should now be able to call ```gdl``` (or whatever command you set instead) f
 
 ### other OS
 not a damn clue
+
+## using wrapper
+- run it in your cmd/term whatever of choice with ```py gallery-dl.py``` or your ```gdl``` command if you set it up.
+- paste link to whatever gallery you wish to download.
+  - if not pinterest or instagram, saving and formatting will be gallery-dl's defaults, change it in the config if wanted
+- the wrapper will report the file(s) downloaded, the location they were saved and the size of file(s)
+- the wrapper will check for duplicates in the destination folder selected and report findings.
+  - if duplicate(s) are found it asks whether to continue abort (delete downloaded files) or to continue (keep downloaded files)
+  - if choosing to continue, the name(s) of duplicate file(s) gets appended a (n), eg if 3 identically named files already exits and a 4th is downloaded, then:
+    - ```this_picture_is_fantastic (4).png```
+- a download log is created by default and will be placed in the same folder as the downloaded files, however:
+  - if the log is empty, eg. no lines (no errors) it will be deleted.
+  - the logging has been setup to be only errors, this can be changed in the config file.
+  - for more logging options, see gallery-dl's page linked above
+- once downloaded it will go ask for a link again. this continues untill you close the wrapper.
+- hit enter with no input or ctrl+c, cmd+c or whatever your abort key config is to exit.
