@@ -59,7 +59,7 @@ def fsize(fname:str, fopath:str)->str:
 	size = os.path.getsize(os.path.join(fopath, fname))
 	units = ['B', 'kB', 'MB', 'GB']
 	unit_index = 0
-	for _ in units[-1]:
+	for _ in units[:-1]:
 		if size > 1024:
 			unit_index += 1
 			size = size / 1024.0
