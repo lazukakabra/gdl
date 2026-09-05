@@ -28,7 +28,7 @@ def print2(*arg):
 def create_dir(path:str):
 	if not os.path.exists(path):
 		os.mkdir(path)
-		print2(color(DARK_CYAN, 'folder created at: ')+f'{path}')
+		print2('', color(DARK_CYAN, 'folder created at: ')+f'{path}')
 
 # finds folder containing files, can differ depending on
 # download settings set for different sites in config file
@@ -94,7 +94,7 @@ def rename_and_move(dir_path:str, download_dir:str):
 	# if duplicate found, ask to continue, if yes then >>
 	# rename and print msg with new name
 	if duplicates:
-		print2('found '+color(YELLOW, f'{duplicates}')+
+		print2('', 'found '+color(YELLOW, f'{duplicates}')+
 			f' out of '+color(DARK_CYAN, f'{len(filenames)}')+' duplicates')
 		for fn in fname_duplicates:
 			print2(f'found '+color(YELLOW, f'{fn[1]}')+
@@ -107,8 +107,6 @@ def rename_and_move(dir_path:str, download_dir:str):
 		for ofn, fn in zip(old_filenames, filenames):
 			os.rename(os.path.join(folderpath, ofn), os.path.join(folderpath, fn))
 			print2(color(GREEN,'renamed >> ')+fn)
-	else:
-		print2('found '+color(YELLOW, '0')+' duplicates in destination folder')
 
 	# ensuring directory exists in destination folder
 	create_dir(os.path.join(download_dir, folderpath))
@@ -132,9 +130,9 @@ def rename_and_move(dir_path:str, download_dir:str):
 		create_dir(new_log_folder)
 		new_log_path = os.path.join(new_log_path, filenames[0]+'.log')
 		move(LOG_FILE_PATH, new_log_path)
-		print2(color(RED_BG, 'non-empty log file, saved:'), new_log_path,'')
+		print2('', color(RED_BG, 'non-empty log file, saved:'), new_log_path,'')
 	else:
-		print2(color(GREEN, 'empty log file, deleting...'))
+		print2('', color(GREEN, 'empty log file, deleting...'))
 		os.remove(LOG_FILE_PATH)
 	os.rmdir(LOG_FOLDER_PATH)
 
