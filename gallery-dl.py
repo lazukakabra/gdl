@@ -64,7 +64,7 @@ def fsize(fname:str, fopath:str)->str:
 		elif unit == units[-1] or size < 1024:
 			break
 	return f'{str(size)[:5]} {unit}' # return 3 decimals max, ignore rounding
-	
+
 # needs downloaded folder path
 def rename_and_move(dir_path:str, download_dir:str):
 	# change folders to tmp_dir
@@ -79,8 +79,8 @@ def rename_and_move(dir_path:str, download_dir:str):
 	print2(color(GREEN, 'downloaded:'), '    folder: '+folderpath)
 	for filename in filenames:
 		print2(
-			'      file: '+filename,
-			'      size: '+fsize(filename, folderpath))
+			'\tfile: '+filename,
+			'\t  size: '+fsize(filename, folderpath))
 
 	# checking for duplicates in dl_dir and adjusting filenames if found
 	duplicates = 0
@@ -177,8 +177,7 @@ def check_file_for_paths(filename:str)->dict:
 	# print locations and return dict
 	print2(color(GREEN, 'found ')+f'{filename}, '
 		+color(DARK_CYAN, 'download folder set to:'),
-		color(DARK_CYAN, '  >> ')+locs['download'],
-		f'  to change, edit {filename} or delete it and rerun script.')
+		color(DARK_CYAN, '   >> ')+locs['download'])
 	os.chdir(prv_dir)
 	return locs
 
@@ -205,6 +204,7 @@ DOWNLOAD_DIR = Rf'{locations['download']}'
 CONFIG_NAME = 'gallery-dl.conf'
 LOC_THIS_SCRIPT = os.path.dirname(__file__)
 CONFIG_PATH = os.path.join(LOC_THIS_SCRIPT, CONFIG_NAME)
+print2(color(GREEN, 'found')+' config file')
 
 # name of log set in config file, set to save at: cwd/logs/log.log
 LOG_FILE = R'log.log'
@@ -224,7 +224,7 @@ gdl_opts = [
 			]
 
 def main():
-	# checking for requirements with helper script ytdlp_req_check.py
+	# checking for requirements with helper script gdl_req_check.py
 	if not grc.report():
 		print2(color(GREEN, 'found')+' all dependencies')
 	else:
