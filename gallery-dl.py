@@ -58,14 +58,13 @@ def download(options:dict, url:str):
 def fsize(fname:str, fopath:str)->str:
 	size = os.path.getsize(os.path.join(fopath, fname))
 	units = ['B', 'kB', 'MB', 'GB']
-	unit_index = 0
-	for _ in units[:-1]:
-		if size > 1024:
-			unit_index += 1
+	for unit in units:
+		if size >= 1024:
 			size = size / 1024.0
-	size = str(size)[:5] # return 3 decimals max, ignore rounding
-	return f'{size} {units[unit_index]}'
-
+		elif unit == units[-1] or size < 1024:
+			break
+	return f'{str(size)[:5]} {unit}' # return 3 decimals max, ignore rounding
+	
 # needs downloaded folder path
 def rename_and_move(dir_path:str, download_dir:str):
 	# change folders to tmp_dir
